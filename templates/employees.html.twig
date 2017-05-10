@@ -1,4 +1,4 @@
-{% extends 'layout.phtml' %}
+{% extends 'layout.html.twig' %}
 {% block body %}
 
     <div class="row">
@@ -27,33 +27,18 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php
-                     $_path_rel= explode("/", $_SERVER['REQUEST_URI']);
 
-                     $_path_rel_nuw="";
-                     for ($i = 0; $i < count($_path_rel) -1; $i++) {
-                            if(!is_null($_path_rel[$i]) and !empty($_path_rel[$i]))
-                            {
-                                $_path_rel_nuw = $_path_rel_nuw. "/".$_path_rel[$i]; 
-                            }
-                        }
-
-                    foreach ($listEmployees as $empleado)
-                    { 
-                    ?>
+                     {% for empleado in listEmployees %}
                         <tr>
-                            <td><?php echo $empleado['name'] ?></td>
-                            <td><?php echo $empleado['email'] ?></td>
-                            <td><?php echo $empleado['position'] ?></td>
-                            <td><?php echo $empleado['salary'] ?></td>
-                            <td>
-                                <a href="<?php echo $_path_rel_nuw."/employeDetail/".$empleado['id'];?>">Details</a>
-                            </td>
+
+                        <td>{{empleado.name}}</td>
+                        <td>{{empleado.email}}</td>
+                        <td>{{empleado.position}}</td>
+                        <td>{{empleado.salary}}</td>
+                        <td><a href="{{ path_for('employeeDetail', {'id': empleado.id}) }}">Detail</a></td>
                         </tr>
-                        
-                    <?php 
-                    };
-                    ?>
+                    {% endfor %}
+   
                   </tbody>
                 </table>
             </div>

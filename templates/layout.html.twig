@@ -11,7 +11,7 @@
         <style>
             .starter-template {
                 padding: 40px 15px;
-                text-align: center;
+   
             }
         </style>
         
@@ -27,13 +27,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/devsac/public/"> Developers SAC</a>
+          <a class="navbar-brand" href="{{ path_for('home')}}"> Developers SAC</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/devsac/public/employees">Employees</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="{{ path_for('employees')}}">Employees</a></li>
+            <li><a href="{{ path_for('searchByRangeSalary',{'min': 1000,'max': 1500 })}}">Web Service</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -42,8 +41,9 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Bienvenido al Sistema de personal</h1>
-        <p class="lead">Use el menú de navegación</p>
+            {% block body %}
+
+            {% endblock %}
       </div>
 
     </div><!-- /.container -->
