@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+    <?php
+        foreach ($listResult as $employe)
+        { ?>
+            <employee>
+                <id><?php echo $employe["id"]; ?></id>
+                <name><?php echo $employe["name"]; ?></name>
+                <email><?php echo $employe["email"]; ?></email>
+                <phone><?php echo $employe["phone"]; ?></phone>
+                <address><?php echo $employe["address"]; ?></address>
+                <position><?php echo $employe["position"]; ?></position>
+                <salary><?php echo $employe["salary"]; ?></salary>
+                <skills>
+                    <?php
+                    foreach ($employe['skills'] as $skill)
+                    { ?>
+                        <skill><?php echo $skill["skill"]; ?></skill>
+                    <?php 
+                    };
+                    ?>
+                </skills>
+            </employee>
+        <?php };
+    ?>
+</employees>
