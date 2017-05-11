@@ -11,6 +11,7 @@ class __TwigTemplate_c3ce2f1d27bfae30c1437090c662067ca057e6675276085d92d3732c589
 
         $this->blocks = array(
             'body' => array($this, 'block_body'),
+            'javascripts' => array($this, 'block_javascripts'),
         );
     }
 
@@ -77,15 +78,11 @@ class __TwigTemplate_c3ce2f1d27bfae30c1437090c662067ca057e6675276085d92d3732c589
 
     </div><!-- /.container -->
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>
-    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\" integrity=\"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa\" crossorigin=\"anonymous\"></script>
-  
-
-</body>
+    ";
+        // line 51
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 61
+        echo "</body>
 </html>
 ";
     }
@@ -96,6 +93,21 @@ class __TwigTemplate_c3ce2f1d27bfae30c1437090c662067ca057e6675276085d92d3732c589
         // line 45
         echo "
             ";
+    }
+
+    // line 51
+    public function block_javascripts($context, array $blocks = array())
+    {
+        // line 52
+        echo "
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>
+    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\" integrity=\"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa\" crossorigin=\"anonymous\"></script>
+  
+    ";
     }
 
     public function getTemplateName()
@@ -110,7 +122,7 @@ class __TwigTemplate_c3ce2f1d27bfae30c1437090c662067ca057e6675276085d92d3732c589
 
     public function getDebugInfo()
     {
-        return array (  97 => 45,  94 => 44,  76 => 47,  74 => 44,  62 => 35,  58 => 34,  51 => 30,  20 => 1,);
+        return array (  102 => 52,  99 => 51,  94 => 45,  91 => 44,  85 => 61,  83 => 51,  77 => 47,  75 => 44,  63 => 35,  59 => 34,  52 => 30,  21 => 1,);
     }
 
     public function getSourceContext()
@@ -165,14 +177,16 @@ class __TwigTemplate_c3ce2f1d27bfae30c1437090c662067ca057e6675276085d92d3732c589
 
     </div><!-- /.container -->
 
+    {% block javascripts %}
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    
     <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>
     <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\" integrity=\"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa\" crossorigin=\"anonymous\"></script>
   
-
+    {% endblock %}
 </body>
 </html>
 ", "layout.html.twig", "C:\\xampp\\htdocs\\devsac\\templates\\layout.html.twig");

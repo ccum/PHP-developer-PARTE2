@@ -11,6 +11,7 @@ class __TwigTemplate_fb3fb8d0c09ffddce3d477b03de98f69c193538a971dc07f66ed563ed0e
         $this->parent = $this->loadTemplate("layout.html.twig", "employees.html.twig", 1);
         $this->blocks = array(
             'body' => array($this, 'block_body'),
+            'javascripts' => array($this, 'block_javascripts'),
         );
     }
 
@@ -38,13 +39,13 @@ class __TwigTemplate_fb3fb8d0c09ffddce3d477b03de98f69c193538a971dc07f66ed563ed0e
                           <span class=\"input-group-btn\">
                             <button class=\"btn btn-default\" type=\"button\">Searh</button>
                           </span>
-                          <input type=\"text\" class=\"form-control\" placeholder=\"user@fanfare.com\">
+                          <input type=\"text\" class=\"form-control\" id=\"searchInput\" placeholder=\"user@fanfare.com\" onkeyup=\"myFunction()\" >
                         </div><!-- /input-group -->
                   </div>
                 </div>
             </div>
             <div class=\"col-lg-12\">
-                <table class=\"table\">
+                <table class=\"table\" id=\"table_employees\">
                   <thead>
                     <tr>
                       <th>Name</th>
@@ -100,6 +101,33 @@ class __TwigTemplate_fb3fb8d0c09ffddce3d477b03de98f69c193538a971dc07f66ed563ed0e
 ";
     }
 
+    // line 48
+    public function block_javascripts($context, array $blocks = array())
+    {
+        // line 49
+        echo "<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById(\"searchInput\");
+  filter = input.value.toUpperCase();
+  table = document.getElementById(\"table_employees\");
+  tr = table.getElementsByTagName(\"tr\");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName(\"td\")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = \"\";
+      } else {
+        tr[i].style.display = \"none\";
+      }
+    }       
+  }
+}
+</script>
+</script>
+";
+    }
+
     public function getTemplateName()
     {
         return "employees.html.twig";
@@ -112,7 +140,7 @@ class __TwigTemplate_fb3fb8d0c09ffddce3d477b03de98f69c193538a971dc07f66ed563ed0e
 
     public function getDebugInfo()
     {
-        return array (  94 => 41,  85 => 38,  81 => 37,  77 => 36,  73 => 35,  69 => 34,  65 => 32,  61 => 31,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  108 => 49,  105 => 48,  95 => 41,  86 => 38,  82 => 37,  78 => 36,  74 => 35,  70 => 34,  66 => 32,  62 => 31,  32 => 3,  29 => 2,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -129,13 +157,13 @@ class __TwigTemplate_fb3fb8d0c09ffddce3d477b03de98f69c193538a971dc07f66ed563ed0e
                           <span class=\"input-group-btn\">
                             <button class=\"btn btn-default\" type=\"button\">Searh</button>
                           </span>
-                          <input type=\"text\" class=\"form-control\" placeholder=\"user@fanfare.com\">
+                          <input type=\"text\" class=\"form-control\" id=\"searchInput\" placeholder=\"user@fanfare.com\" onkeyup=\"myFunction()\" >
                         </div><!-- /input-group -->
                   </div>
                 </div>
             </div>
             <div class=\"col-lg-12\">
-                <table class=\"table\">
+                <table class=\"table\" id=\"table_employees\">
                   <thead>
                     <tr>
                       <th>Name</th>
@@ -164,6 +192,27 @@ class __TwigTemplate_fb3fb8d0c09ffddce3d477b03de98f69c193538a971dc07f66ed563ed0e
           </div>
       </div>
 {% endblock %}
-", "employees.html.twig", "C:\\xampp\\htdocs\\devsac\\templates\\employees.html.twig");
+{% block javascripts %}
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById(\"searchInput\");
+  filter = input.value.toUpperCase();
+  table = document.getElementById(\"table_employees\");
+  tr = table.getElementsByTagName(\"tr\");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName(\"td\")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = \"\";
+      } else {
+        tr[i].style.display = \"none\";
+      }
+    }       
+  }
+}
+</script>
+</script>
+{% endblock %}", "employees.html.twig", "C:\\xampp\\htdocs\\devsac\\templates\\employees.html.twig");
     }
 }
